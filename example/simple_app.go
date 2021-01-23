@@ -15,10 +15,9 @@ func main() {
 	blocks := make([][MB]byte, 0)
 	fmt.Println("Child pid is", os.Getpid())
 
-	for i := 0; ; i++ {
+	for range time.Tick(time.Second) {
 		blocks = append(blocks, [MB]byte{})
 		printMemUsage()
-		time.Sleep(time.Second)
 	}
 }
 
